@@ -4,7 +4,7 @@ import ConfigParser
 
 # Use config.py
 config = ConfigParser.ConfigParser()
-config.read('config.py')
+config.read('config.conf')
 filetype = config.get('Main', 'format')
 
 if filetype == 'csv':
