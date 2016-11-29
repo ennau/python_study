@@ -1,3 +1,4 @@
+### ReprMixin
 class Table(object):
     def __init__(self, l, w, h):
         self.l, self.w, self.h = l, w, h
@@ -46,3 +47,14 @@ class Proxy(object):
         print "Proxy.m1"
     def __getattr__(self, item):
         return getattr(self._a, item)
+
+### equil magic method
+class Person(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __repr__(self):
+        return "Person {}: {}".format(self.name, self.age)
+    def __eq__(self, other):
+        return self.name == other.name and self.age == other.age
+
