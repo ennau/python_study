@@ -57,4 +57,8 @@ class Person(object):
         return "Person {}: {}".format(self.name, self.age)
     def __eq__(self, other):
         return self.name == other.name and self.age == other.age
+    # Sort list via age (method lt)
+    def __lt__(self, other):
+        return self.age < other.age
+
 
