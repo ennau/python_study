@@ -1,0 +1,18 @@
+class Table(object):
+    def __init__(self, l, w, h):
+        self.l, self.w, self.h = l, w, h
+
+
+class ReprMixin(object):
+    def __repr__(self):
+        return "{}({})".format(
+        self.__class__.__name__,
+        ', '.join(["{}={}".format(k, v) for k, v in self.__dict__.items()])
+        )
+
+
+class TableWithBox(ReprMixin, Table):
+    def __init__(self, *args, **kwargs):
+        super(TableWithBox, self).__init__(*args, **kwargs)
+        self.box_is_opened = False
+
