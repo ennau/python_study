@@ -18,7 +18,6 @@ class TableWithBox(ReprMixin, Table):
 
 
 ### Read only variable in class
-
 class A(object):
     def __init__(self):
         self.a = 42
@@ -31,3 +30,19 @@ class A(object):
             raise AttributeError('a is read-only')
         super(A, self).__delattr__(name)
 
+### Pattern Proxy
+class A(object):
+    def m1(self):
+        print "A.m1"
+    def m2(self):
+        print "A.m2"
+    def m3(self):
+        print "A.m3"
+
+class Proxy(object):
+    def __init__(self):
+        self._a = A()
+    def m1(self):
+        print "Proxy.m1"
+    def __getattr__(self, item):
+        return getattr(self._a, item)
