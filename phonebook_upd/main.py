@@ -40,24 +40,11 @@ class contacts(object):
     def update(self, name, phone):
         self.phonebook[name] = phone
 
+    def delete(self, name):
+        del self.phonebook[name]  # ? def __delattr__
 
-
-    def delete(self):
-        name = raw_input("Delete name from dict\n")
-        if name in self.phonebook:
-            del self.phonebook[name]
-            print "Delete {}: phone {}".format(name, self.phone)
-        else:
-            print name + ' ' + 'is not found'
-
-
-    def read(self):
-        name = raw_input("Search name from dict\n")
-        if name in self.phonebook:
-            print "{}: phone is {}".format(name, self.phonebook[name])
-        else:
-            print name + ' ' + 'is not found'
-
+    def read(self, name):
+        return self.phonebook[name] # ? def __getattr_
 
     def show(self):
         print self.phonebook
