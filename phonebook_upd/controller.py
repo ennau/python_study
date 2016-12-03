@@ -1,13 +1,18 @@
-#from main import create, update, delete, read, show
 from main import contacts
-
-flag = ''
 
 c = contacts() # Load main class contacts
 
+
 # Main logic
+flag = ''
 while flag != 'exit':
-    iselect = str(raw_input("C=Create, R=Read, U=Update, D=Delete, S=Show, exit=exit\n"))
+    iselect = str(raw_input("C=Create, "
+                            "R=Read, "
+                            "U=Update, "
+                            "D=Delete, "
+                            "S=Show, "
+                            "exit=exit\n")
+                  )
 
     if iselect == 'R':
         name = raw_input("Search name from dict\n")
@@ -18,7 +23,7 @@ while flag != 'exit':
             print name + ' ' + 'is not found'
 
     elif iselect == 'C':
-        name = raw_input("Create name to dict\n")
+        name = raw_input("Create name into dict\n")
         try:
            phone = int(raw_input("Add phone\n"))
         except ValueError:
@@ -54,3 +59,4 @@ while flag != 'exit':
 
 else:
     print "Done"
+
